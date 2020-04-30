@@ -1,0 +1,43 @@
+<form [formGroup]="verificationForm" *ngIf="isInvalid">
+    <mat-card id="verification" fxFlex="80%" fxFlex.sm="90%">
+        <mat-card-title>Authenticate Yourself</mat-card-title>
+        <mat-divider></mat-divider>
+        <mat-card-content fxLayout="column">
+            <div fxLayout="column" fxLayout.gt-md="row" fxLayoutAlign="start stretch" fxLayoutAlign.gt-md="start start"
+                 style="margin: 24px 0">
+                <div fxLayout="row" fxLayout.gt-sm="row">
+                    <mat-form-field>
+                        <input matInput [formControl]="session_OTP" size="4" numbers-only required>
+                        <mat-error *ngIf="session_OTP.invalid">{{getOTPErrorMessage()}}</mat-error>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayout.gt-sm="row">
+                    <mat-divider>
+                        <mat-form-field>
+                            <input matInput [matDatepicker]="idDateOfIssuePicker" placeholder="Date of Issue date">
+                            <mat-datepicker-toggle matSuffix [for]="idDateOfIssuePicker"></mat-datepicker-toggle>
+                            <mat-datepicker #idDateOfIssuePicker></mat-datepicker>
+                        </mat-form-field>
+                    </mat-divider>
+                </div>
+                <label>Is this you?</label>
+                <mat-checkbox></mat-checkbox>
+                <div fxLayout="column" fxLayout.gt-md="row">
+                    <mat-form-field fxFlex>
+                        <input matInput
+                               placeholder="First Names" [formControl]="memberFirstName" readonly>
+                    </mat-form-field>
+                    <mat-form-field fxFlex>
+                        <input matInput
+                               placeholder="Initials" [formControl]="memberInitials" readonly>
+                    </mat-form-field>
+                    <mat-form-field fxFlex>
+                        <input matInput
+                               placeholder="Last Name" [formControl]="memberLastName" readonly>
+                    </mat-form-field>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</form>
+
