@@ -11,6 +11,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
+import {ErrorStateMatcher, ShowOnDirtyErrorStateMatcher} from '@angular/material/core';
 
 // const perfectScrollbarConfig: PerfectScrollbarConfigInterface = {
 //     suppressScrollX: true,
@@ -41,6 +42,11 @@ const sortablejsConfig: SortablejsOptions = {
   ],
   bootstrap: [
     AppComponent
+  ]
+})
+@NgModule({
+  providers: [
+    {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}
   ]
 })
 
