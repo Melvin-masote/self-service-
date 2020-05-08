@@ -41,6 +41,19 @@ export class MainComponent implements OnInit{
     emailFormControl = new FormControl('', [
         Validators.required,
         Validators.email,
+
+    ]);
+
+    // tslint:disable-next-line:member-ordering
+    phoneNumber = new FormControl('', [
+        Validators.required,
+        Validators.pattern( '^(\\+27|0)[6-8][0-9]{8}$' )
+    ]);
+
+    // tslint:disable-next-line:member-ordering
+    idNumber = new FormControl('', [
+        Validators.required,
+        Validators.pattern('(?<Year>[0-9][0-9])(?<Month>([0][1-9])|([1][0-2]))(?<Day>([0-2][0-9])|([3][0-1]))(?<Gender>[0-9])(?<Series>[0-9]{3})(?<Citizenship>[0-9])(?<Uniform>[0-9])(?<Control>[0-9])')
     ]);
 
     // tslint:disable-next-line:member-ordering

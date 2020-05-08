@@ -53,15 +53,20 @@
                                     style="margin-left: 5px; display:inline-block; width: 50px; height: 3px; background-color: #de6d45;"></span>
                             </h6>
 
-                            <form class="example-form">
+                            <form class="exam596+ple-form">
                                 <mat-form-field class="example-full-width">
                                     <mat-label style="font: bold;font-weight :700;color: black;">ID Number <span
                                             style="color: red;">*</span></mat-label><br>
                                     <span class="material-icons">
                     perm_identity
                   </span>
-                                    <input type="number"  matInput placeholder="SA ID" ngModel required/>
-
+                                    <input   matInput [formControl]="idNumber" [errorStateMatcher]="matcher" placeholder=" SA ID / PassportNumber"/>
+                                    <mat-error *ngIf="idNumber.hasError('required')">
+                                        SA ID / PassportNumber is <strong>required</strong>
+                                    </mat-error>
+                                    <mat-error *ngIf="idNumber.hasError('pattern')">
+                                        Please enter a valid SA ID / PassportNumber
+                                    </mat-error>
                                 </mat-form-field>
 
                                 <mat-form-field class="example-full-width">
@@ -69,7 +74,15 @@
                                             style="color: red;">*</span></mat-label><br>
                                     <span class="material-icons">
                     phone_in_talk
-                  </span> <input type="number" matInput placeholder="(011) 412 2351" pattern=""/>
+                  </span> <input  matInput [formControl]="phoneNumber" [errorStateMatcher]="matcher" placeholder="(+27) 72 412 2351" pattern=""/>
+                                    <mat-error
+                                            *ngIf="phoneNumber.hasError('pattern') ">
+                                        Please enter a valid phone number
+                                    </mat-error>
+
+                                    <mat-error *ngIf="phoneNumber.hasError('required')">
+                                        Cell Phone is  <strong>required</strong>
+                                    </mat-error>
 
                                 </mat-form-field>
 
@@ -92,13 +105,25 @@
                                         Email is <strong>required</strong>
                                     </mat-error>
                                 </mat-form-field>
-                                <div class="recaptcha" style="min-width: 150px;
-                max-width: 600px;
-                width: 100%;
-                font-size: 80%;">
-                                    <re-captcha (resolved)="resolved($event)"
-                                                siteKey="6LdMTKYUAAAAAHrn13sgUZY0wqC415JoyFamhZzM">
-                                    </re-captcha>
+                                <div class="recaptcha"
+                                     style="min-width: 150px;
+                                    max-width: 600px;
+                                    width: 100%;
+                                    font-size: 80%;">
+                                    <mat-error *ngIf="!idNumber.hasError('required') &&!idNumber.hasError('pattern') && !emailFormControl.hasError('required')&& !emailFormControl.hasError('email')">
+
+                                        <re-captcha (resolved)="resolved($event)"
+                                                    siteKey="6LdMTKYUAAAAAHrn13sgUZY0wqC415JoyFamhZzM">
+                                        </re-captcha>
+                                    </mat-error>
+                                    <mat-error *ngIf="!idNumber.hasError('required') &&!idNumber.hasError('pattern') && !phoneNumber.hasError('required') && !phoneNumber.hasError('pattern')">
+
+
+                                        <re-captcha (resolved)="resolved($event)"
+                                                    siteKey="6LdMTKYUAAAAAHrn13sgUZY0wqC415JoyFamhZzM">
+                                        </re-captcha>
+                                    </mat-error>
+
                                 </div>
                                 <mat-card-actions>
                                     <div fxLayout="row" fxLayoutAlign="center">
