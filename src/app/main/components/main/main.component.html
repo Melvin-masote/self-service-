@@ -17,20 +17,19 @@
             <div id="kc-content-wrapper">
                 <div class="row">
 
-                    <div class="col-md-8">
+                    <div class="col-md-8" >
                         <strong><b>You'll be able to do the following:.</b></strong>
                         <br><br>
                         <h6 style="font-weight:700;color:#000000;margin-bottom:10px;">Who can claim?</h6>
                         All benefits are payable to the policy owner:
                         <ul>
-                            <li>If the policyholder is the deceased then the benefit is payable to the beneficiary of
-                                the death
-                                benefit.
+                            <li>If the policyholder is the deceased then the benefit is payable<br>
+                                to the beneficiary of the death benefit.
                             </li>
-                            <li>If there is no beneficiary appointed then the benefit is payable to the nominee for
+                            <li>If there is no beneficiary appointed then the benefit is payable<br> to the nominee for
                                 ownership.
                             </li>
-                            <li>If there is no beneficiary or nominee then the benefit is payable to the next insured as
+                            <li>If there is no beneficiary or nominee then the benefit is payable <br>to the next insured as
                                 indicated in
                                 the policy contract.
                             </li>
@@ -45,97 +44,211 @@
                         </ul>
                     </div>
 
-                    <div class="col-md-3">
-                        <mat-card style="width: 140%;background-color: #F5F2F0  ;">
+                    <div class="col-md-3"  [formGroup]="DaterForm">
+                        <mat-card style="width: 200%;background-color: #F5F2F0  ; ">
                             <h6 class="heading clearfix " style="font-weight:700;color:#000000;margin-bottom:10px;">
                                 Create your
                                 account.<span
                                     style="margin-left: 5px; display:inline-block; width: 50px; height: 3px; background-color: #de6d45;"></span>
                             </h6>
 
-                            <form class="exam596+ple-form">
-                                <mat-form-field class="example-full-width">
-                                    <mat-label style="font: bold;font-weight :700;color: black;">ID Number <span
-                                            style="color: red;">*</span></mat-label><br>
-                                    <span class="material-icons">
+                            <mat-tab-group #tabRef>
+                                <mat-tab label="South African Citizen">
+                                    <form class="exam596+ple-form">
+                                        <mat-form-field class="example-full-width">
+                                            <mat-label style="font: bold;font-weight :700;color: black;">ID Number <span
+                                                    style="color: red;">*</span></mat-label>
+                                            <br>
+                                            <span class="material-icons">
                     perm_identity
                   </span>
-                                    <input   matInput [formControl]="idNumber" [errorStateMatcher]="matcher" placeholder=" SA ID / PassportNumber"/>
-                                    <mat-error *ngIf="idNumber.hasError('required')">
-                                        SA ID / PassportNumber is <strong>required</strong>
-                                    </mat-error>
-                                    <mat-error *ngIf="idNumber.hasError('pattern')">
-                                        Please enter a valid SA ID / PassportNumber
-                                    </mat-error>
-                                </mat-form-field>
+                                            <input matInput [formControl]="idNumber" [errorStateMatcher]="matcher"
+                                                   placeholder=" SA ID / PassportNumber"/>
+                                            <mat-error *ngIf="idNumber.hasError('required')">
+                                                SA ID / PassportNumber is <strong>required</strong>
+                                            </mat-error>
+                                            <mat-error *ngIf="idNumber.hasError('pattern')">
+                                                Please enter a valid SA ID / PassportNumber
+                                            </mat-error>
+                                        </mat-form-field>
 
-                                <mat-form-field class="example-full-width">
-                                    <mat-label style="font: bold;color: black;font-weight :700;">Cell Phone <span
-                                            style="color: red;">*</span></mat-label><br>
-                                    <span class="material-icons">
+                                        <mat-form-field class="example-full-width">
+                                            <mat-label style="font: bold;color: black;font-weight :700;">Cell Phone <span
+                                                    style="color: red;">*</span></mat-label>
+                                            <br>
+                                            <span class="material-icons">
                     phone_in_talk
-                  </span> <input  matInput [formControl]="phoneNumber" [errorStateMatcher]="matcher" placeholder="(+27) 72 412 2351" pattern=""/>
-                                    <mat-error
-                                            *ngIf="phoneNumber.hasError('pattern') ">
-                                        Please enter a valid phone number
-                                    </mat-error>
+                  </span> <input matInput [formControl]="phoneNumber" [errorStateMatcher]="matcher"
+                                 placeholder="(+27) 72 412 2351" pattern=""/>
+                                            <mat-error
+                                                    *ngIf="phoneNumber.hasError('pattern') ">
+                                                Please enter a valid phone number
+                                            </mat-error>
 
-                                    <mat-error *ngIf="phoneNumber.hasError('required')">
-                                        Cell Phone is  <strong>required</strong>
-                                    </mat-error>
+                                            <mat-error *ngIf="phoneNumber.hasError('required')">
+                                                Cell Phone is <strong>required</strong>
+                                            </mat-error>
 
-                                </mat-form-field>
+                                        </mat-form-field>
 
-                                <mat-label style="font: bold;color: black;font-weight :700; padding:100pt;">OR
-                                </mat-label>
+                                        <mat-label style="font: bold;color: black;font-weight :700; padding:100pt;">OR
+                                        </mat-label>
 
-                                <mat-form-field class="example-full-width">
+                                        <mat-form-field class="example-full-width">
 
-                                    <mat-label style="font: bold;font-weight :700;color: black;">Email</mat-label>
-                                    <br>
-                                    <span class="material-icons">email</span>
-                                    <input matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
-                                           placeholder="Ex. pat@example.com">
+                                            <mat-label style="font: bold;font-weight :700;color: black;">Email</mat-label>
+                                            <br>
+                                            <span class="material-icons">email</span>
+                                            <input matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                                                   placeholder="Ex. pat@example.com">
 
-                                    <mat-error
-                                            *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-                                        Please enter a valid email address
-                                    </mat-error>
-                                    <mat-error *ngIf="emailFormControl.hasError('required')">
-                                        Email is <strong>required</strong>
-                                    </mat-error>
-                                </mat-form-field>
-                                <div class="recaptcha"
-                                     style="min-width: 150px;
+                                            <mat-error
+                                                    *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                                                Please enter a valid email address
+                                            </mat-error>
+                                            <mat-error *ngIf="emailFormControl.hasError('required')">
+                                                Email is <strong>required</strong>
+                                            </mat-error>
+                                        </mat-form-field>
+                                        <div class="recaptcha"
+                                             style="min-width: 150px;
                                     max-width: 600px;
                                     width: 100%;
                                     font-size: 80%;">
-                                    <mat-error *ngIf="!idNumber.hasError('required') &&!idNumber.hasError('pattern') && !emailFormControl.hasError('required')&& !emailFormControl.hasError('email')">
+                                            <mat-error
+                                                    *ngIf="!idNumber.hasError('required') &&!idNumber.hasError('pattern') &&
+                                            !emailFormControl.hasError('required')&& !emailFormControl.hasError('email')">
 
-                                        <re-captcha (resolved)="resolved($event)"
-                                                    siteKey="6LdMTKYUAAAAAHrn13sgUZY0wqC415JoyFamhZzM">
-                                        </re-captcha>
-                                    </mat-error>
-                                    <mat-error *ngIf="!idNumber.hasError('required') &&!idNumber.hasError('pattern') && !phoneNumber.hasError('required') && !phoneNumber.hasError('pattern')">
+                                                <re-captcha (resolved)="resolved($event)"
+                                                            siteKey="6LdMTKYUAAAAAHrn13sgUZY0wqC415JoyFamhZzM">
+                                                </re-captcha>
+                                            </mat-error>
+                                            <mat-error
+                                                    *ngIf="!idNumber.hasError('required') &&!idNumber.hasError('pattern') &&
+                                            !phoneNumber.hasError('required') && !phoneNumber.hasError('pattern')">
+                                                <re-captcha (resolved)="resolved($event)"
+                                                            siteKey="6LdMTKYUAAAAAHrn13sgUZY0wqC415JoyFamhZzM">
+                                                </re-captcha>
+                                            </mat-error>
+                                        </div>
+                                        <mat-card-actions>
+                                            <div fxLayout="row" fxLayoutAlign="center">
+                                                <button class="Reg-button" color="primary" mat-raised-button [disabled]="!valid"
+                                                        (click)="identifyUser()" type="button"
+                                                >
+                                                    <div class="Reg-font"><label>Register</label></div>
+                                                </button>
+                                            </div>
+                                        </mat-card-actions>
+                                    </form>
+                                </mat-tab>
+                                <mat-tab label="Non South African Citizen">
+                                    <form class="exam596+ple-form">
+                                        <mat-form-field class="example-full-width">
+                                            <mat-label style="font: bold;font-weight :700;color: black;">Passport Number <span
+                                                    style="color: red;">*</span></mat-label>
+                                            <br>
+                                            <span class="material-icons">
+                    perm_identity
+                  </span>
+                                            <input matInput [formControl]="idNumber" [errorStateMatcher]="matcher"
+                                                   placeholder=" SA ID / PassportNumber"/>
+                                            <mat-error *ngIf="idNumber.hasError('required')">
+                                                SA ID / PassportNumber is <strong>required</strong>
+                                            </mat-error>
+                                            <mat-error *ngIf="idNumber.hasError('pattern')">
+                                                Please enter a valid SA ID / PassportNumber
+                                            </mat-error>
+                                        </mat-form-field>
+
+                                        <mat-form-field class="example-full-width">
+                                            <mat-label style="font: bold;font-weight :700;color: black;">Country Of Issue <span
+                                                    style="color: red;">*</span></mat-label>
+                                            <br>
+
+                                            <input matInput />
+
+                                        </mat-form-field>
+                                        <mat-form-field class="example-full-width">
+                                            <mat-label>Date Of Birth</mat-label>
+                                            <input matInput [matDatepicker]="picker" >
+                                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker></mat-datepicker>
+                                        </mat-form-field>
 
 
-                                        <re-captcha (resolved)="resolved($event)"
-                                                    siteKey="6LdMTKYUAAAAAHrn13sgUZY0wqC415JoyFamhZzM">
-                                        </re-captcha>
-                                    </mat-error>
 
-                                </div>
-                                <mat-card-actions>
-                                    <div fxLayout="row" fxLayoutAlign="center">
-                                        <button class="Reg-button" color="primary" mat-raised-button [disabled]="!valid"
-                                                (click)="identifyUser()" type="button"
+                                        <mat-form-field class="example-full-width">
+                                            <mat-label style="font: bold;color: black;font-weight :700;">Cell Phone <span
+                                                    style="color: red;">*</span></mat-label>
+                                            <br>
+                                            <span class="material-icons">
+                    phone_in_talk
+                  </span> <input matInput [formControl]="phoneNumber" [errorStateMatcher]="matcher"
+                                 placeholder="(+27) 72 412 2351" pattern=""/>
+                                            <mat-error
+                                                    *ngIf="phoneNumber.hasError('pattern') ">
+                                                Please enter a valid phone number
+                                            </mat-error>
 
-                                        >
-                                            <div class="Reg-font"><label>Register</label></div>
-                                        </button>
-                                    </div>
-                                </mat-card-actions>
-                            </form>
+                                            <mat-error *ngIf="phoneNumber.hasError('required')">
+                                                Cell Phone is <strong>required</strong>
+                                            </mat-error>
+
+                                        </mat-form-field>
+
+                                        <mat-label style="font: bold;color: black;font-weight :700; padding:100pt;">OR
+                                        </mat-label>
+
+                                        <mat-form-field class="example-full-width">
+
+                                            <mat-label style="font: bold;font-weight :700;color: black;">Email</mat-label>
+                                            <br>
+                                            <span class="material-icons">email</span>
+                                            <input matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                                                   placeholder="Ex. pat@example.com">
+
+                                            <mat-error
+                                                    *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                                                Please enter a valid email address
+                                            </mat-error>
+                                            <mat-error *ngIf="emailFormControl.hasError('required')">
+                                                Email is <strong>required</strong>
+                                            </mat-error>
+                                        </mat-form-field>
+                                        <div class="recaptcha"
+                                             style="min-width: 150px;
+                                    max-width: 600px;
+                                    width: 100%;
+                                    font-size: 80%;">
+                                            <mat-error
+                                                    *ngIf="!idNumber.hasError('required') &&!idNumber.hasError('pattern') &&
+                                            !emailFormControl.hasError('required')&& !emailFormControl.hasError('email')">
+
+                                                <re-captcha (resolved)="resolved($event)"
+                                                            siteKey="6LdMTKYUAAAAAHrn13sgUZY0wqC415JoyFamhZzM">
+                                                </re-captcha>
+                                            </mat-error>
+                                            <mat-error
+                                                    *ngIf="!idNumber.hasError('required') &&!idNumber.hasError('pattern') &&
+                                            !phoneNumber.hasError('required') && !phoneNumber.hasError('pattern')">
+                                                <re-captcha (resolved)="resolved($event)"
+                                                            siteKey="6LdMTKYUAAAAAHrn13sgUZY0wqC415JoyFamhZzM">
+                                                </re-captcha>
+                                            </mat-error>
+                                        </div>
+                                        <mat-card-actions>
+                                            <div fxLayout="row" fxLayoutAlign="center">
+                                                <button class="Reg-button" color="primary" mat-raised-button [disabled]="!valid"
+                                                        (click)="identifyUser()" type="button"
+                                                >
+                                                    <div class="Reg-font"><label>Register</label></div>
+                                                </button>
+                                            </div>
+                                        </mat-card-actions>
+                                    </form>
+                                </mat-tab>
+                            </mat-tab-group>
                         </mat-card>
                         <br>
                     </div>
