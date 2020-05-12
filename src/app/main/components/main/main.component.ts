@@ -51,6 +51,10 @@ export class MainComponent implements OnInit{
             this.valid = false;
         }
     }
+    countyOfIsuue = new FormControl('',[
+        Validators.required
+    ]);
+
     // tslint:disable-next-line:member-ordering
     emailFormControl = new FormControl('', [
         Validators.required,
@@ -66,6 +70,28 @@ export class MainComponent implements OnInit{
 
     // tslint:disable-next-line:member-ordering
     idNumber = new FormControl('', [
+        Validators.required,
+        Validators.pattern('(?<Year>[0-9][0-9])(?<Month>([0][1-9])|([1][0-2]))(?<Day>([0-2][0-9])|([3][0-1]))(?<Gender>[0-9])(?<Series>[0-9]{3})(?<Citizenship>[0-9])(?<Uniform>[0-9])(?<Control>[0-9])')
+    ]);
+
+
+    // non south african Validations
+
+    // tslint:disable-next-line:member-ordering
+    EmailFormControl = new FormControl('', [
+        Validators.required,
+        Validators.email,
+
+    ]);
+
+    // tslint:disable-next-line:member-ordering
+    PhoneNumber = new FormControl('', [
+        Validators.required,
+        Validators.pattern( '^(\\+27|0)[6-8][0-9]{8}$' )
+    ]);
+
+    // tslint:disable-next-line:member-ordering
+    IdNumber = new FormControl('', [
         Validators.required,
         Validators.pattern('(?<Year>[0-9][0-9])(?<Month>([0][1-9])|([1][0-2]))(?<Day>([0-2][0-9])|([3][0-1]))(?<Gender>[0-9])(?<Series>[0-9]{3})(?<Citizenship>[0-9])(?<Uniform>[0-9])(?<Control>[0-9])')
     ]);
