@@ -30,27 +30,6 @@
       max-width: 240px;
       margin: 25px auto 0;
 
-      input {
-        margin: 0 5px;
-        text-align: center;
-        line-height: 80px;
-        font-size: 50px;
-        border: solid 1px #ccc;
-        box-shadow: 0 0 5px #ccc inset;
-        outline: none;
-        width: 20%;
-        transition: all .2s ease-in-out;
-        border-radius: 3px;
-
-        &:focus {
-          border-color: purple;
-          box-shadow: 0 0 5px purple inset;
-        }
-
-        &::selection {
-          background: transparent;
-        }
-      }
 
       button {
         margin:  30px 0 50px;
@@ -105,3 +84,48 @@ footer{
   color: white;
 }
 
+
+
+//mat-card styling
+.mat-card{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  max-width: 1000px;
+  max-height: 700px;
+  margin: 25px auto 0;
+  padding-bottom: 20px;
+  box-shadow: #de6d45;
+  border-bottom-style: double;
+
+}
+
+//.Reg-button{}
+
+.Reg-button:hover {
+  background-color:orangered;
+}
+.Reg-button{
+  background-color: black;
+  padding: 10px 210px;
+}
+
+.Reg-button1:hover {
+  background-color:orangered;
+}
+.Reg-button1{
+  background-color: black;
+  padding: 10px 161px;
+}
+
+
+.template{
+  background-color: #2e3133;
+}
+.example-full-width {
+  width: 121%;
+  padding-left: 60px;
+}
+.otp{
+  padding-left: 130px;
+}

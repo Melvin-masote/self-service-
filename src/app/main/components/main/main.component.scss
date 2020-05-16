@@ -19,7 +19,8 @@
 }
 .mat-raised-button{
 	background-color: black;
-	padding: 10px 122px;
+	padding: 10px 150px;
+
 }
 .footer{
 	background-color: #1d2124;
@@ -37,4 +38,11 @@ footer{
 .footer-promotion{
 	background: #de6d45;
 	color: white;
+}
+.not-scrollable{
+	overflow: hidden;
+}
+.mat-tab-group {
+	overflow: hidden;
+
 }

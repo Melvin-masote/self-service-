@@ -1,111 +1,89 @@
 <div>
-  <toolbar></toolbar>
+    <toolbar></toolbar>
 </div>
-<div id="wrapper">
-  <div id="dialog">
-    <button class="close">×</button>
-    <h3>Please enter the 4-digit verification code we sent via SMS:</h3>
-    <span>(we want to make sure it's you before we contact our movers)</span>
-    <div id="form">
-      <input type="text" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" />
-      <input type="text" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" /><input type="text" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" /><input type="text" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" />
-      <button class="btn btn-primary btn-embossed">Verify</button>
-    </div>
 
-    <div>
-      Didn't receive the code?<br />
-      <a href="#">Send code again</a><br />
-      <a href="#">Change phone number</a>
-    </div>
-    <img src="http://jira.moovooz.com/secure/attachment/10424/VmVyaWZpY2F0aW9uLnN2Zw==" alt="test" />
-  </div>
-</div>
+<mat-card style="background-color: #F5F2F0  ;">
+
+    <form class="wrapper">
+
+            <h4 style="display: flex;
+  justify-content: center;">Please enter the 4-digit verification code we sent via SMS:</h4>
+
+<br>
+        <div class="container" >
+            <div class="row">
+                <div class="col-md-9">
+
+
+
+                    <mat-form-field appearance="outline" class="example-full-width" >
+                        <mat-label class="otp">    Enter OTP Number</mat-label>
+                        <input matInput  type="text"  autocomplete="off" maxLength="4" size="1" min="0" max="9" pattern="[0-9]{4}" placeholder="____________________eg. 5489_______________________________"
+                               style="font: bold;font-weight :700;color: black;" [formControl]="optNum1" [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="optNum1.hasError('required')">
+                            <mat-label>required</mat-label>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+
+        <br> <br>
+        <mat-card-actions>
+            <div fxLayout="row" fxLayoutAlign="center">
+                <button class="Reg-button" color="primary" mat-raised-button
+                >
+                    <div class="Reg-font"><h5 style="color: white">Verify</h5></div>
+                </button>
+            </div>
+        </mat-card-actions>
+        <div fxLayout="row" fxLayoutAlign="center">
+            <a href="http://localhost:4200/" style="font: bold;color: black;font-weight :700;">Send code again <span
+                    style="color: red;"></span></a>
+
+        </div>
+    </form>
+</mat-card><br><br><br><br>
+
+
 
 <div class="footer-promotion"
      style="background-image: url(https://www.gepf.gov.za/wp-content/uploads/2019/06/promo-bg.png); background-repeat: no-repeat; background-position: center center; background-size: cover;">
-  <div class="finax-container">
-    <div class="inner">
-      <div class="title-wrap">
-        <div class="text-wrap">
-          <div class="promo-icon"><img
-                  src="https://www.gepf.gov.za/wp-content/uploads/2019/07/stop_fraud_helpline.png"
-                  alt="Icon"></div>
-        </div>
-      </div>
+    <div class="finax-container">
+        <div class="inner">
+            <div class="title-wrap">
+                <div class="text-wrap">
+                    <div class="promo-icon"><img
+                            src="https://www.gepf.gov.za/wp-content/uploads/2019/07/stop_fraud_helpline.png"
+                            alt="Icon"></div>
+                </div>
+            </div>
 
+        </div>
     </div>
-  </div>
 </div>
 <footer>
-  <div class="row">
-    <div class="col-md-3">
-      <h3>CLIENT CENTRE</h3>
-      <p>GEPF Administration Office<br>
-        Building 2A, Trevenna Campus<br>
-        Corner Meintjies and Francis Baard Street<br>
-        Sunnyside, Pretoria</p>
-    </div>
-    <div class="col-md-3">
-      <h3>BOARD OF TRUSTEES</h3>
-      <p>Tel: +27 12 424 7330</p><br>
-      <p>For more information,</p><br>
-      <a href="https://www.gepf.gov.za/board-of-trustees/">click here</a>
+    <div class="row">
+        <div class="col-md-3">
+            <h3>CLIENT CENTRE</h3>
+            <p>GEPF Administration Office<br>
+                Building 2A, Trevenna Campus<br>
+                Corner Meintjies and Francis Baard Street<br>
+                Sunnyside, Pretoria</p>
+        </div>
+        <div class="col-md-3">
+            <h3>BOARD OF TRUSTEES</h3>
+            <p>Tel: +27 12 424 7330</p><br>
+            <p>For more information,</p><br>
+            <a href="https://www.gepf.gov.za/board-of-trustees/">click here</a>
 
+        </div>
+        <div class="col-md-3">
+            <h3>GEPF CONFERENCE</h3>
+        </div>
+        <div class="col-md-3">
+            <h3>RECENT NEWS </h3>
+        </div>
     </div>
-    <div class="col-md-3">
-      <h3>GEPF CONFERENCE</h3>
-    </div>
-    <div class="col-md-3">
-      <h3>RECENT NEWS </h3>
-    </div>
-  </div>
 </footer>
 
-
-<script>
-  $(function() {
-    'use strict';
-
-    var body = $('body');
-
-    function goToNextInput(e) {
-      var key = e.which,
-              t = $(e.target),
-              sib = t.next('input');
-
-      if (key != 9 && (key < 48 || key > 57)) {
-        e.preventDefault();
-        return false;
-      }
-
-      if (key === 9) {
-        return true;
-      }
-
-      if (!sib || !sib.length) {
-        sib = body.find('input').eq(0);
-      }
-      sib.select().focus();
-    }
-
-    function onKeyDown(e) {
-      var key = e.which;
-
-      if (key === 9 || (key >= 48 && key <= 57)) {
-        return true;
-      }
-
-      e.preventDefault();
-      return false;
-    }
-
-    function onFocus(e) {
-      $(e.target).select();
-    }
-
-    body.on('keyup', 'input', goToNextInput);
-    body.on('keydown', 'input', onKeyDown);
-    body.on('click', 'input', onFocus);
-
-  })
-</script>
